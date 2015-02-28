@@ -31,25 +31,25 @@ function generateViews(sequelize, callback){
 function generateTables(sequelize, force, cb){
 
 	mysqlTables.sequelize = sequelize;
-	
-	mysqlTables.Ficheiro = sequelize.define('ficheiros', {
-		tag: {type: Sequelize.STRING, unique: 'fileKey'},
-		nome: {type: Sequelize.STRING, unique: 'fileKey'},
-		file: Sequelize.STRING
-	});
+
+	// mysqlTables.Ficheiro = sequelize.define('ficheiros', {
+	// 	tag: {type: Sequelize.STRING, unique: 'fileKey'},
+	// 	nome: {type: Sequelize.STRING, unique: 'fileKey'},
+	// 	file: Sequelize.STRING
+	// });
 
 	mysqlTables.Play = sequelize.define('play_table', {
-		startedAt: {type: Sequelize.DATE}
+		startedAt: {type: Sequelize.DATE},
 
 	});
 
 	
-	
+
 	// mySQL VIEWs
 	/////////////
 
 	/////////////
-	
+
 	sequelize.sync({force: force})
 	.success(function(){
 		if(force)
@@ -62,24 +62,24 @@ function generateTables(sequelize, force, cb){
 	});
 
 	
-}
+};
 
 mysqlTables.config = function (cb){
 
 	if(!(process.env.CLEARDB_DATABASE_URL))
 		throw 'Invalid database configuration';
-		
+
 	var forcesync = process.env.DB_FORCE_SYNC ? true : false;
-		
-		
+
+
 	var loginString = process.env.CLEARDB_DATABASE_URL;
 		loginString = (loginString.indexOf("?") !== -1 ? loginString.slice(0, loginString.indexOf("?")) : loginString);
-		
+
 	var sequelizeObj = process.env.LOGDB ? {dialect: 'mysql'} : {dialect: 'mysql', logging: false};
 	var sequelize = new Sequelize(loginString, sequelizeObj);
 	generateTables(sequelize, forcesync, cb);
-	
-	return mysqlTables;	
+
+	return mysqlTables;
 };
 
 
