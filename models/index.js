@@ -32,52 +32,43 @@ function generateTables(sequelize, force, cb){
 
 	mysqlTables.sequelize = sequelize;
 
-	// mysqlTables.Ficheiro = sequelize.define('ficheiros', {
-	// 	tag: {type: Sequelize.STRING, unique: 'fileKey'},
-	// 	nome: {type: Sequelize.STRING, unique: 'fileKey'},
-	// 	file: Sequelize.STRING
-	// });
-
 	mysqlTables.User = sequelize.define('user', {
-		userName: {type: Sequelize.STRING},
-		realName: {type: Sequelize.STRING}
-		email: {type: Sequelize.STRING}
-		password: {type: Sequelize.STRING},
-	})
+		loginName: {type: Sequelize.STRING},
+		realName: {type: Sequelize.STRING},
+		email: {type: Sequelize.STRING},
+		password: {type: Sequelize.STRING}
+	});
+
+    mysqlTables.Arcade = sequelize.define('arcade', {
+        gameTitle: {type: Sequelize.STRING},
+        physicalId: {type: Sequelize.STRING},
+        ticketCapacity: {type: Sequelize.INTEGER},
+        coinCapacity: {type: Sequelize.INTEGER},
+        firmwareVer: {type: Sequelize.STRING}
+    });
 
 	mysqlTables.Play = sequelize.define('play', {
 		startedAt: {type: Sequelize.DATE},
 		finishedAt: {type: Sequelize.DATE},
-		gameVersion: {type: Sequelize.STRING}
+		gameVersion: {type: Sequelize.STRING},
 		coinsIn: {type: Sequelize.INTEGER},
 		ticketsOut: {type: Sequelize.INTEGER},
 		score: {type: Sequelize.INTEGER}
 	});
+	mysqlTables.Arcade.hasOne(mysqlTables.Play, {as: 'arcade'});
 
-	mysqlTables.Arcade = sequelize.define('arcade', {
-		gameTitle: {type: Sequelize.STRING},
-		physicalIdent: {type: Sequelize.STRING},
-		ticketCapacity: {type: Sequelize.INTEGER},
-		coinCapacity: {type: Sequelize.INTEGER},
-		firmwareVer: {type: Sequelize.STRING}
-	});
-
-	mysqlTables.Arcade.hasOne(Play, {as: 'arcade'})
-
-	mysqlTables.Maintenence = sequelize.define('maintenence', {
+	mysqlTables.Maintenance = sequelize.define('maintenance', {
 		action: {type: Sequelize.STRING},
 		date: {type: Sequelize.DATE},
 		reason: {type: Sequelize.STRING}
-	})
+	});
+	mysqlTables.Arcade.hasOne(mysqlTables.Maintenance, {as: 'arcade'});
 
-	mysqlTables.Arcade.hasOne(Maintenence, {as: 'arcade'}).
-
-	mysqlTables.Player= sequelize.define('player' {
+	mysqlTables.Player= sequelize.define('player', {
 		name: {type: Sequelize.STRING},
-		device: {type: Sequelize.STRING},
-	})
-
-	mysqlTables.Play.hasMany(Player, {as: 'plays'})
+		device: {type: Sequelize.STRING}
+	});
+	mysqlTables.Play.hasMany(mysqlTables.Player, {as: 'plays'});
 
 
 	// mySQL VIEWs

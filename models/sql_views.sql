@@ -1,10 +1,10 @@
-DROP TABLE IF EXISTS vjogoses;
-DROP VIEW IF EXISTS vjogoses;
-CREATE VIEW vjogoses AS
+DROP TABLE IF EXISTS vMachine;
+DROP VIEW IF EXISTS vMachine;
+CREATE VIEW vMachine AS
 
 SELECT 
- a.id,
- SUM(IF((d.jogoId = a.id) AND (d.equipaId = a.casaId), 1, IF(a.presenca_fora = 0, 8, 0))) as golos_casa,
+ a.*,
+ COUNT(IF(b.arcade = a.id, 1, IF(a.presenca_fora = 0, 8, 0))) as golos_casa,
  SUM(IF((d.jogoId = a.id) AND (d.equipaId = a.foraId), 1, IF(a.presenca_casa = 0, 8, 0))) as golos_fora,
  a.data,
  a.titulo,
@@ -17,8 +17,8 @@ SELECT
  c.id as foraId,
  a.concluido,
  e.ano
-FROM jogoses AS a
-INNER JOIN competicoes AS e ON (a.competicaoId = e.id)
+FROM arcades AS a
+INNER JOIN play AS b ON (a.id = b.arcade)
 INNER JOIN equipas AS b ON (a.casaId = b.id)
 INNER JOIN equipas AS c ON (a.foraId = c.id)
 LEFT JOIN goloses AS d ON (d.jogoId = a.id)
