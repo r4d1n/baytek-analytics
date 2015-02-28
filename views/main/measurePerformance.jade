@@ -1,0 +1,32 @@
+script.template#performance-view(type="html/text")
+	.span6
+		.widget
+			.widget-title
+				h4
+					i.icon-cogs
+					| Measure Performance
+			.widget-body.form
+				.form-horizontal
+					.control-group
+						label.control-label	Max # Requests
+						.controls
+							input#maxConcurRequests(type="text", placeholder="i.e: 1000", disabled, value="1000")
+					.control-group
+						label.control-label	Test Duration
+						.controls
+							input#testDuration(type="text", placeholder="[in seconds]")
+					.control-group
+						.progress.progress-striped.active
+							.bar(style="width: 0%;")
+					.control-group.hidden
+						label.control-label POST per second
+						.controls
+							input#resultPOST.input-mini(type="text", disabled)
+					.control-group.hidden
+						label.control-label GET per second
+						.controls
+							input#resultGET.input-mini(type="text", disabled)
+					.form-actions
+						button.btn.btn-primary#startPerformanceTest Start
+						| &nbsp;
+						button.btn.btn-danger#cancelPerformanceTest(disabled) Cancel

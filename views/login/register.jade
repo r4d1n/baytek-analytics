@@ -1,0 +1,30 @@
+script#register-view.template(type="text/html")
+	#notification-wrapper
+	// Begin Forgot Password Form
+	#validate.form-vertical.no-padding.no-margin
+		.center
+			h4 Join Community
+		p.center Please enter your personal data be a part of our community
+		.lock: i.icon-user
+		.control-wrap.form-group
+			.control-group
+				.controls
+					.input-prepend
+						span.add-on: i.icon-user
+						input#input-username-register(name="username", type="text", placeholder="User Name")
+			.control-group
+				.controls
+					.input-prepend
+						span.add-on: i.icon-key
+						input#input-password-register(name="password", type="password", placeholder="Password")
+			.control-group
+				.controls
+					.input-prepend
+						span.add-on: i.icon-key
+						input#input-password2-register(name="password2", type="password", placeholder="Repeat Password")
+			.space20
+		button#register-btn.btn.btn-block.login-btn(type="button", value="Join") Join
+		.mtop10
+			.block-hint
+				a#register-showLogin(href="javascript:;") Back
+	// End Forgot Password Form

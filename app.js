@@ -85,6 +85,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('sjdhf4;2dhGDas_56f;FDjk'));
+
+app.use('assets', express.static(path.join(__dirname, '/bower_components')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -149,25 +151,7 @@ module.exports = app;
         server.on('error', onError);
         server.on('listening', onListening);
 
-        /**
-         * Normalize a port into a number, string, or false.
-         */
 
-        function normalizePort(val) {
-            var port = parseInt(val, 10);
-
-            if (isNaN(port)) {
-                // named pipe
-                return val;
-            }
-
-            if (port >= 0) {
-                // port number
-                return port;
-            }
-
-            return false;
-        }
 
         /**
          * Event listener for HTTP server "error" event.
@@ -180,7 +164,7 @@ module.exports = app;
 
             var bind = typeof port === 'string'
                 ? 'Pipe ' + port
-                : 'Port ' + port
+                : 'Port ' + port;
 
             // handle specific listen errors with friendly messages
             switch (error.code) {
