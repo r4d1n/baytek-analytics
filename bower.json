@@ -1,0 +1,19 @@
+{
+  "name": "baytek-analytics",
+  "version": "0.0.0",
+  "homepage": "https://github.com/r4d1n/baytek-analytics",
+  "authors": [
+    "Jared Radin <jared.radin@gmail.com>"
+  ],
+  "description": "an analytics dashboard for IoT arcade operators",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
