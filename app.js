@@ -194,38 +194,7 @@ module.exports = app;
         }
 
 
-        /*      // Configure Router
-              //////////////////
-              // Main content
-              app.configure(function(){
-                  // Public App
-                  app.get('/', Routes.fbCrawler, Routes.publicApp);
 
-                  // Client App
-                  app.get('/bo', Routes.admin.checkAccess, Routes.privateApp);
-              });
-              // Login
-              app.configure(function(){
-                  app.get('/login', Routes.login);
-                  app.post('/api/login', Routes.admin.login);
-                  app.put('/api/logout', Routes.admin.logout);
-                  app.post('/api/forgot', Routes.admin.forgot);
-                  app.get('/confirm/email/:id/:hash', Routes.admin.confirmEmail);
-              });
-              // User
-              app.configure(function(){
-                  app.get('/api/users/:id', Routes.users.getOne);
-                  app.post('/api/users', Routes.admin.checkEmail, Routes.admin.register);
-                  app.put('/api/users/:id', Routes.admin.checkAccess, Routes.users.editOne);
-                  //app.del('/api/users/:id', Routes.checkUser, Routes.delUser);
-              });
-              // Approve widget
-              app.configure(function(){
-                  app.get('/api/pending', Routes.admin.checkAccess, Routes.pending.getAll);
-                  app.put('/api/pending/:id', Routes.admin.checkAccess, Routes.pending.denyOne);
-              });
-
-      */
 
     }
 
