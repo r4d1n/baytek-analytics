@@ -95,14 +95,9 @@ function generateTables(sequelize, force, cb){
 			.error(function(error){
 				console.log(error);
 			});
-
-<<<<<<< HEAD
-
 		};
-=======
 
 };
->>>>>>> 831471f258502c051d6ce6c9bf520afa1552b001
 
 		mysqlTables.config = function (cb){
 
