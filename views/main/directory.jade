@@ -1,0 +1,23 @@
+script.template#directory-view(type="html/text")
+	.span12
+		// BEGIN TABLE WIDGET
+		.widget
+			.widget-title
+				h4
+					i.icon-group
+					| Directory Table
+			.widget-body
+				table.table.table-striped.table-bordered.table-advance#directory-table
+					thead
+						tr
+							th(style="width:10px;")
+							th User Name
+							th Status
+					tbody
+		// END TABLE WIDGET
+script.template#directory-item-view(type="html/text")
+	td.highlight#item-online
+	td.center
+		a#item-userName(href="javascript:;")
+	td#item-status
+		

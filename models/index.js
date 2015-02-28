@@ -19,14 +19,14 @@ function generateViews(sequelize, callback){
 				return executeQueries(sqlQueries, ++index);
 			}
 			sequelize.query(sqlQueries[index])
-			.success(function(r){
+			.success(function(){
 				executeQueries(sqlQueries, ++index);
 			}).error(function(err){ throw err;});
-		};
+		}
 		executeQueries(sqlQueries, 0);
 
 	});/**/
-};
+}
 
 function generateTables(sequelize, force, cb){
 
@@ -39,7 +39,7 @@ function generateTables(sequelize, force, cb){
 	});
 
 	mysqlTables.Play = sequelize.define('play_table', {
-		startedAt: {type: Sequelize.DATE},
+		startedAt: {type: Sequelize.DATE}
 
 	});
 
@@ -62,7 +62,7 @@ function generateTables(sequelize, force, cb){
 	});
 
 	
-};
+}
 
 mysqlTables.config = function (cb){
 

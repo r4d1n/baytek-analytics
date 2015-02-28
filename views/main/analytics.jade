@@ -1,0 +1,38 @@
+script.template#memory-view(type="html/text")
+	.span6#measureMemoryWidget
+		// BEGIN TABLE WIDGET
+		.widget
+			.widget-title
+				h4
+					i.icon-cogs
+					| Measure Memory
+			.widget-body
+				| Click Play to start recording memory usage...
+				br
+				.control-group
+					button.btn.btn-primary#startMemoryTest
+						i.icon-play
+					button.btn.btn-primary#endMemoryTest
+						i.icon-pause
+					| &nbsp;
+					button.btn#reportMemoryUsage
+						i.icon-eye-open
+						|  View Memory Usage
+				.control-group
+					| <% if(collection && collection[0]){ %>
+					table.table.table-striped.table-bordered.table-advance#directory-table
+						thead
+							tr
+								| <% _.each(collection[0], function(value, key, list ){ if(!visible[key]) return;  %>
+								th(class!='<%= hidden[key] %>') <%= visible[key] %>
+								| <% }) %>
+						tbody
+							| <% _.each(collection, function(elem, index, list ){  %>
+							tr
+								| <% _.each(elem, function(value, key, list_param ){ if(!visible[key]) return; %>
+								td(class!='<%= hidden[key] %> center') <%= value %>
+								| <% }) %>
+							| <% }) %>
+					| <% } %>
+		// END TABLE WIDGET
+		

@@ -1,0 +1,24 @@
+script#login-view.template(type="text/html")
+	#notification-wrapper
+	// Begin Login Form
+	#validate.form-vertical.no-padding.no-margin
+		.lock: i.icon-lock
+		.control-wrap.form-group
+			h4 Sign In
+			.control-group
+				.controls
+					.input-prepend
+						span.add-on: i.icon-user
+						input#login-username(name="username", type="text", placeholder="Username")
+			.control-group
+				.controls
+					.input-prepend
+						span.add-on: i.icon-key
+						input#login-password(name="password",type="password", placeholder="Password")
+					.mtop10
+						.block-hint.pull-right
+							a#login-showRegister(href="javascript:;") Not a member?
+					
+					.clearfix.space5
+		button#login-btn.btn.btn-block.login-btn(value="Login") Sign In
+	// End login Form
