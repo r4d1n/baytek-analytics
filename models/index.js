@@ -80,13 +80,13 @@ function generateTables(sequelize, force, cb){
 	.success(function(){
 		if(force)
 			generateViews(sequelize, cb);
-			else
-				cb();
-			})
-			.error(function(error){
+		else
+			cb();
+	})
+	.error(function(error){
 				console.log(error);
-			});
-		};
+	});
+
 
 };
 
