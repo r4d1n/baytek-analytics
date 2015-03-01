@@ -3,10 +3,10 @@
  */
 var Controller = {
     isLoggedIn: function (req, res, next) {
-        if(req && req.session && req.session.auth && req.session.userName){
+        //if(req && req.session && req.session.auth && req.session.userName){
             next();
-        }else
-            return res.redirect('/login');
+        //}else
+            //return res.redirect('/login');
     },
     hasAccess: function (req, res, next) {
         next();
