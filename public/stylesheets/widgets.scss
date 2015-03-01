@@ -1,0 +1,51 @@
+$warning-color: #cc3333;
+$medium-color: #FFFF00;
+$happy-color: #33FF00;
+$grey-color: #ccc;
+
+
+div#content-wrapper {
+  height: 100%;
+  padding-top: 10px;
+}
+
+nav {
+  margin-bottom: 100px;
+}
+
+li {
+  float: left;
+}
+
+.circle {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  border: 1px solid $grey-color;
+
+  .warning {
+    color: $warning-color;
+    border: 1px solid darken($warning-color, 30%);
+    &:hover {
+      color: darken($warning-color, 15%);
+    }
+  }
+
+  .medium {
+    color: $medium-color;
+    border: 1px solid darken($medium-color, 30%);
+    &:hover {
+      color: darken($medium-color, 15%);
+    }
+  }
+
+  .good {
+    color: $happy-color;
+    border: 1px solid darken($happy-color, 30%);
+    &:hover {
+      color: darken($happy-color, 15%);
+    }
+  }
+}

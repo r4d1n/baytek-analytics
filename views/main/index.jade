@@ -1,142 +1,15 @@
 extends layout
 
 block content
-	// BEGIN HEADER
-	#header.navbar.navbar-inverse.navbar-fixed-top
-		// BEGIN TOP NAVIGATION BAR
-		.navbar-inner
-			.container-fluid
-				// BEGIN LOGO
-				a.brand(style="height:60px").hidden-phone
-					h1(style="color:white") SSNoC
-				// END LOGO
-				// BEGIN RESPONSIVE MENU TOGGLER
-				a.btn.btn-navbar.collapsed#main_menu_trigger(data-toggle="collapse", data-target=".nav-collapse")
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-					span.arrow
-				// END RESPONSIVE MENU TOGGLER
-				// BEGIN NOTIFICATION ICONS
-				#top_menu.nav.notify-row
-					ul.nav.top-menu
-						// BEGIN INBOX DROPDOWN
-						li.dropdown#header_inbox_bar
-							a.dropdown-toggle(data-toggle="dropdown", href="javascript:;")
-								i.icon-envelope-alt
-								span.badge.badge-important#messageCount 0
-							ul.dropdown-menu.extended.inbox
-								li: p You have <span id="messageCount">no</span> new message(s)
-								li
-									a(href="javascript:;") See all messages
-						// END INBOX DROPDOWN						
-				// END NOTIFICATION ICONS
-				// BEGIN USER MENU
-				.top-nav
-					ul.nav.pull-right.top-menu
-						// BEGIN USER LOGIN DROPDOWN
-						li.dropdown
-							a.dropdown-toggle(href="javascript:;", data-toggle="dropdown")
-								span.username#username= user 
-								| &nbsp;
-								b.caret
-							ul.dropdown-menu
-								li
-									a(href="#profile")
-										i.icon-user
-										| &nbsp; My Profile
-								li
-									a(href="#wall")
-										i.icon-envelope
-										| &nbsp; Wall
-								li
-									a(href="javascript:;")
-										i.icon-map-marker
-										| &nbsp; Map
-								li.divider
-								li
-									a(href="/logout")
-										i.icon-key
-										| &nbsp; Log Out
-						// END USER LOGIN DROPDOWN
-				// BEGIN USER MENU
-		// END TOP NAVIGATION BAR
-	// END HEADER
-	// BEGIN CONTAINER
-	#container.row-fluid
-		// BEGIN SIDEBAR
-		#sidebar.nav-collapse.collapse
-			.sidebar-toggler.hidden-phone
-			ul.sidebar-menu
-				li
-					a.active(href="#wall")
-						span.icon-box: i.icon-list-alt
-						| Public Wall
-				li
-					a.active(href="#directory")
-						span.icon-box: i.icon-group
-						| Directory
-				li
-					a.active(href="#profile")
-						span.icon-box: i.icon-user
-						| Profile
-				li
-					a.active(href="#measurePerformance")
-						span.icon-box: i.icon-dashboard
-						| Tools
-		// END SIDEBAR
-		// BEGIN PAGE
-		#main-content
-			// BEGIN PAGE CONTAINER
-			.container-fluid
-				// BEGIN PAGE HEADER
-				.row-fluid
-					.span3
-					.span6
-						#notification-wrapper(style="margin-top:13px;")
-					.span12(style="margin-left:0;")
-						// BEGIN PAGE TITLE
-						h3.page-title
-						ul.breadcrumb
-						// END PAGE TITLE
-				// END PAGE HEADER
-				// BEGIN PAGE CONTENT
-				.row-fluid#page-content
-				// END PAGE CONTENT
-			// END PAGE CONTAINER
-		// END PAGE
-	// END CONTAINER
-	// BEGIN FOOTER
+	//- #application-header.login-header
+	#content-wrapper
 	#footer
-		- var copyright = (new Date).getFullYear() + ' &copy; FSE Team USB1 - CMU Silicon Valley'
-		!= copyright
-	// END FOOTER
 
-	// BEGIN JAVASCRIPTS
-	// Load Javascripts at bottom to reduce page load
-	
-	// jQuery
-	script(src='lib/jquery.min.js')
-	script(src="assets/bootstrap/js/bootstrap.min.js")
-	script(src="lib/jquery.blockui.js")
-	
-	// Backbone and dependencies
-	script(src='lib/lodash.min.js')
-	script(src='lib/backbone.min.js')
-	script(src="lib/backbone.stickit.min.js")
-	script(src='javascripts/tl.js')
-
-	// Dynamic Tables
-	// script(type="text/javascript", src="assets/uniform/jquery.uniform.min.js")
-	script(type="text/javascript", src="assets/data-tables/jquery.dataTables.js")
-	script(type="text/javascript", src="assets/data-tables/DT_bootstrap.js")
-	script(src="assets/nestable/jquery.nestable.js")
-	
-	// Fancy buttons
-	script(type="text/javascript", src="assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js")
-
-	// Main App
-	script(src="assets/socketIO/socket.io.js")
-	script.
-		window.socket = io();
-	script(src='javascripts/clientApp.js') //main app
+	script(src="assets/jquery/dist/jquery.min.js")
+	script(src="assets/bootstrap/dist/js/bootstrap.min.js")
+	script(src='assets/lodash/lodash.min.js')
+	script(src='assets/backbone/backbone.js')
+	script(src="assets/backbone.stickit/backbone.stickit.js")
+	script(src="assets/bootstrapValidator/dist/js/bootstrapValidator.js")
+	script(src='js/tl.js')
+	script(src='js/mainApp.js')

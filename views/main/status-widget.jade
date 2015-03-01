@@ -1,4 +1,13 @@
 script.template#status-widgets(type="text/html")
-    span.circle
-
-  
+  div.container-fluid
+    ul
+      li
+        span.circle#machines
+          span#runningMachines 
+          | /
+          span#totalMachines
+            //- span.circle#stock
+      li
+        span.circle#pendingTasks
+      li
+        span.circle#money
