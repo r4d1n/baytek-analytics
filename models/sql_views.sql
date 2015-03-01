@@ -4,7 +4,11 @@ CREATE VIEW vMachine AS
 
 SELECT 
  a.*,
- COUNT(IF(b.arcade = a.id, 1, IF(a.presenca_fora = 0, 8, 0))) as golos_casa,
+ SUM(IF(DATEDIFF(NOW(), b.startedAt) = 0, 1,0)) as cntPlaysToday,
+ SUM(IF(DATEDIFF(NOW(), b.startedAt) < 7, 1,0)) as cntPlaysWeek,
+ SUM(IF(DATEDIFF(NOW(), b.startedAt) < 30, 1,0)) as cntPlaysMonth,
+ SUM(IF(DATEDIFF(NOW(), b.startedAt) < 365, 1,0)) as cntPlaysYear,
+ COUNT(b.id) as cntPlaysTotal,
  SUM(IF((d.jogoId = a.id) AND (d.equipaId = a.foraId), 1, IF(a.presenca_casa = 0, 8, 0))) as golos_fora,
  a.data,
  a.titulo,

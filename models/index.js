@@ -47,6 +47,11 @@ function generateTables(sequelize, force, cb){
         firmwareVer: {type: Sequelize.STRING}
     });
 
+    mysqlTables.Player= sequelize.define('player', {
+        name: {type: Sequelize.STRING},
+        device: {type: Sequelize.STRING}
+    });
+
 	mysqlTables.Play = sequelize.define('play', {
 		startedAt: {type: Sequelize.DATE},
 		finishedAt: {type: Sequelize.DATE},
@@ -56,6 +61,7 @@ function generateTables(sequelize, force, cb){
 		score: {type: Sequelize.INTEGER}
 	});
 	mysqlTables.Arcade.hasOne(mysqlTables.Play, {as: 'arcade'});
+    mysqlTables.Player.hasOne(mysqlTables.Play, {as: 'player'});
 
 	mysqlTables.Maintenance = sequelize.define('maintenance', {
 		action: {type: Sequelize.STRING},
@@ -63,12 +69,6 @@ function generateTables(sequelize, force, cb){
 		reason: {type: Sequelize.STRING}
 	});
 	mysqlTables.Arcade.hasOne(mysqlTables.Maintenance, {as: 'arcade'});
-
-	mysqlTables.Player= sequelize.define('player', {
-		name: {type: Sequelize.STRING},
-		device: {type: Sequelize.STRING}
-	});
-	mysqlTables.Play.hasMany(mysqlTables.Player, {as: 'plays'});
 
 
 	// mySQL VIEWs
