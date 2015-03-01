@@ -145,8 +145,10 @@ var BB = {
 		error: function (model, resp, options) {
 			if(resp.status == 404){
 				this.notification.model.set('text', 'Service Unavailable. Please try again in a few minutes...');
+				this.notification.render();
 			}else{
 				this.notification.model.set('text', resp.responseText);
+				this.notification.render();
 				console.log(resp);
 			}
 		},
@@ -253,8 +255,10 @@ var BB = {
 		error: function (model, resp, options) {
 			if(resp.status == 404){
 				this.notification.model.set('text', 'Service Unavailable. Please try again in a few minutes...');
+				this.notification.render();
 			}else{
-				this.notification.model.set('text', resp.responseText);
+				this.notification.model.set('text', resp.responseText)
+				this.notification.render();
 				console.log(resp);
 			}
 		},
@@ -275,23 +279,20 @@ var BB = {
 	});
 	BB.Notification.View = Backbone.View.extend({
 		bindings: {
-			'#notification-text': {
-				observe: 'text',
-				onGet: 'showNotification'
-			}
+			'#notification-text': 'text'
 		},
-		showNotification: function(val){
+		render: function(){
 			var self = this;
-			if(val===''){
-				this.$el.hide();
+			if(this.model.get('text') == ''){
+				this.$el.find("#notification-text").hide();
 			}else{
-				this.$el.show();
+				this.$el.find("#notification-text").show();
 				setTimeout(function(){
 					self.model.set('text', '');
 				}, this.model.get('time'));
 			}
 
-			return val;
+			return;
 		},
 
 		initialize: function(){

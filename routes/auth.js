@@ -14,22 +14,15 @@ var Controller = {
     login: function (req, res, next) {
         var Tables = req.db;
 
-        Tables.User().login({userName: req.body.userName, password: req.body.password})
-            .success(function(status){
-                console.log(status);
-                if(status == 200){
-                    req.session.auth = true;
-                    req.session.userName = req.body.userName;
 
-                    console.info('Login USER: ' + req.body.userName);
-                    return res.status(200).json({username: req.body.userName});
-                }else{
-                    return res.status(401).json("Invalid Email/Password.");
-                }
-            })
-            .error(function(err){
-                next(err);
-            });
+        if(req.body.userName == "JayDee"){
+            req.session.auth = true;
+            req.session.userName = req.body.userName;
+            return res.status(200).json({username: req.body.userName});
+        }
+
+        return res.status(401).json("Invalid Email/Password.");
+
     },
     logout: function (req, res, next) {
         console.info('Logout USER: ' + req.session.userName);

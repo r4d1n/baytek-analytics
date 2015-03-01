@@ -30,7 +30,7 @@ var Auth = require('./auth'),
   //app.post('/api/signup', );
 
   // process the login form
-  //app.post('/api/login', Auth.login);
+  router.post('/api/login', Auth.login);
 
 
 
