@@ -66,9 +66,15 @@ function generateTables(sequelize, force, cb){
 	mysqlTables.Maintenance = sequelize.define('maintenance', {
 		action: {type: Sequelize.STRING},
 		date: {type: Sequelize.DATE},
+        done: {type: Sequelize.BOOLEAN},
 		reason: {type: Sequelize.STRING}
 	});
 	mysqlTables.Arcade.hasOne(mysqlTables.Maintenance, {as: 'arcade'});
+
+    mysqlTables.OpenHours = sequelize.define('openHours', {
+        openAt: {type: Sequelize.TIME},
+        closeAt: {type: Sequelize.TIME}
+    });
 
 
 	// mySQL VIEWs
