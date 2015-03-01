@@ -7,20 +7,10 @@ script.template#loginForm(type="text/html")
 		label.checkbox
 			// input.form-control(type="checkbox", value="remember-me")
 			// |  lembre-me
-			span.pull-right
-				a(data-toggle="modal", href="#forgotModal") Esqueceu-se da Password?
 		button.btn.btn-lg.btn-login.btn-block#login-btn Entrar
-		p ou aceda através da rede social favorita
-		.login-social-link
-			a.facebook(href="javascript:;")
-				i.fa.fa-facebook
-				| Facebook
-			a.twitter(href="javascript:;")
-				i.fa.fa-twitter
-				| Twitter
-		.registration
-			| Ainda não tem conta?
-			a(href="#registration")  Inscreva-se
+		span
+			a(data-toggle="modal", href="#forgotModal") Esqueceu-se da Password?	
+		
 	// Modal start
 	#forgotModal.modal.fade(aria-hidden="true", aria-labelledby="forgotModalLabel", role"dialog", tabindex="-1")
 		.modal-dialog
