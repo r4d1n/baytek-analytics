@@ -1,7 +1,7 @@
 (function($){
 	
 		// Custom Validator
-	$.fn.bootstrapValidator.validators.restrictedNames = {
+	/*$.fn.bootstrapValidator.validators.restrictedNames = {
 		restrictedNames: ['about', 'access', 'account', 'accounts', 'add', 'address', 'adm', 'admin', 'administration', 'adult',
 		'advertising', 'affiliate', 'affiliates', 'ajax', 'analytics', 'android', 'anon', 'anonymous', 'api', 'app', 'apps', 'archive', 'atom', 'auth', 'authentication', 'avatar','backup', 'banner', 'banners', 'bin', 'billing', 'blog', 'blogs', 'board', 'bot',
 		'bots', 'business','chat', 'cache', 'cadastro', 'calendar', 'campaign', 'careers', 'cgi', 'client', 'cliente', 'code', 'comercial',
@@ -23,7 +23,7 @@
 		 * @param {jQuery} $field The jQuery object represents the field element
 		 * @param {Object} options The validator options
 		 * @returns {Boolean}
-		 */
+		 *
 		validate: function(validator, $field, options) {
 		            // You can get the field value
 		            var value = $field.val();
@@ -34,7 +34,7 @@
 					return false;
 
 		        }
-	};
+	};*/
 	
 	
 	appConfig = {
