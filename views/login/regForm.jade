@@ -1,0 +1,15 @@
+script.template#regForm(type="text/html")
+	h2.form-signin-heading Inscrição
+	.login-wrap
+		#notification-wrapper
+		p Insira a informação da sua conta abaixo
+		input.form-control#input-username(type="text", placeholder="Email")
+		input.form-control#input-password(type="password", placeholder="Password")
+		input.form-control#input-repassword(type="password", placeholder="Repita a Password")
+		label.checkbox
+			input.form-control(type="checkbox", value="agree this condition")
+			|  Li e Aceito os Termos de Servico e a Politica de Privacidade
+		button.btn.btn-lg.btn-login.btn-block#register-btn Enviar
+		.registration
+			| Já está inscrito?
+			a(href="#login")  Login
