@@ -72,7 +72,8 @@ if(node_env != 'development'){
                     secret: true,
                     expires: false
                 },
-                resave: false
+                resave: false,
+                saveUninitialized: false
             }));
 
 // view engine setup
@@ -86,8 +87,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('sjdhf4;2dhGDas_56f;FDjk'));
 
-app.use('assets', express.static(path.join(__dirname, '/bower_components')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/assets/', express.static(__dirname + '/bower_components'));
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -197,5 +198,3 @@ module.exports = app;
 
 
     }
-
-
