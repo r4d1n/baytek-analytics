@@ -84,11 +84,11 @@ function dbSynced(){
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser('sjdhf4;2dhGDas_56f;FDjk'));
 
-  app.use('/assets/', express.static(__dirname + '/bower_components'));
+  app.use('/bower_components/', express.static(__dirname + '/bower_components'));
   app.use(express.static(__dirname + '/public'));
 
-  app.use('/', routes);
-  app.use('/users', users);
+  // app.use('/', routes);
+  // app.use('/users', users);
 
   // MiddleWare
   // Pass DB to request
@@ -129,7 +129,7 @@ function dbSynced(){
   });
 
   app.get("/", function(req, res) {
-    res.render(context});
+    res.render('home', context});
   });
 
 
